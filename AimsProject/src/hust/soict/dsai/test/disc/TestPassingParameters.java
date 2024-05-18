@@ -8,8 +8,11 @@ public class TestPassingParameters {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
-		DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
+		DigitalVideoDisc jungleDVD = new DigitalVideoDisc(1, "The Lion King", "Animation", "Roger Allers", 87, 9.95f);
+		jungleDVD.setTitle("Jungle");
+		DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc(2, "Star Wars", "Science Fiction", "George Lucas", 87,
+				24.95f);
+		cinderellaDVD.setTitle("Cinderella");
 
 		swap(jungleDVD, cinderellaDVD);
 		System.out.println("jungle dvd title: " + jungleDVD.getTitle());
@@ -42,7 +45,8 @@ public class TestPassingParameters {
 	public static void changeTitle(DigitalVideoDisc dvd, String title) {
 		String oldTitle = dvd.getTitle();
 		dvd.setTitle(title);
-		dvd = new DigitalVideoDisc(oldTitle);
+		dvd = new DigitalVideoDisc(2, "Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
+		dvd.setTitle(oldTitle);
 	}
 
 //	public static void swap(Object o1, Object o2) {

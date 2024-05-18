@@ -21,8 +21,11 @@ public class Book extends Media {
 		}
 	}
 
-	public Book() {
-		// TODO Auto-generated constructor stub
+	public Book(int id, String title, String category, float cost) {
+		super(id, title, category, cost);
 	}
 
+	public String toString() {
+		return "Book: " + "_" + getId() + "_" + getTitle() + "_" + getCategory() + "_" + getCost();
+	}
 }

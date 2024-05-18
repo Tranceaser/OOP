@@ -1,11 +1,16 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media {
 
-	protected int id;
-	protected String title;
-	protected String category;
-	protected float cost;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+
+	private int id;
+	private String title;
+	private String category;
+	private float cost;
 
 	public int getId() {
 		return id;
@@ -39,8 +44,22 @@ public abstract class Media {
 		this.cost = cost;
 	}
 
-	public Media() {
-		// TODO Auto-generated constructor stub
+	public Media(int id, String title, String category, float cost) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Media) {
+			Media object = (Media) o;
+			return this.title == object.getTitle();
+		}
+		return false;
+
 	}
 
 }

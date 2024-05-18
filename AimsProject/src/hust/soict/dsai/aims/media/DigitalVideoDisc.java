@@ -1,9 +1,8 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
 	private String director;
 	private int length;
-	private static int nbDigitalVideoDiscs = 0;
 
 	public String getDirector() {
 		return director;
@@ -22,38 +21,23 @@ public class DigitalVideoDisc extends Disc {
 	}
 
 	// Constructor
-	public DigitalVideoDisc(String title) {
-		this.title = title;
-		nbDigitalVideoDiscs += 1;
-		this.id = nbDigitalVideoDiscs;
-	}
-
-	public DigitalVideoDisc(String title, String category, float cost) {
-		this.category = category;
-		this.title = title;
-		this.cost = cost;
-		nbDigitalVideoDiscs += 1;
-		this.id = nbDigitalVideoDiscs;
-	}
-
-	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		this.director = director;
-		this.category = category;
-		this.title = title;
-		this.cost = cost;
-		nbDigitalVideoDiscs += 1;
-		this.id = nbDigitalVideoDiscs;
-	}
-
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-		this.title = title;
-		this.category = category;
+	public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
+		super(id, title, category, cost);
 		this.director = director;
 		this.length = length;
-		this.cost = cost;
-		nbDigitalVideoDiscs += 1;
-		this.id = nbDigitalVideoDiscs;
+
+	}
+
+	@Override
+	public void play() {
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
+
+	}
+
+	public String toString() {
+		return "DVD: " + "_" + getId() + "_" + getTitle() + "_" + getCategory() + "_" + director + "_" + "_" + length
+				+ "_" + getCost();
 	}
 
 }
